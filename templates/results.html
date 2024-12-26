@@ -2,10 +2,16 @@
 <html>
 <head>
     <title>Analysis Results</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Analysis Results for {{ ticker }}</h1>
-    <p>Final Portfolio Balance: ${{ final_balance }}</p>
-    <a href="/static/visualizations.html">View Visualizations</a>
+    <div class="results">
+        <h1>Analysis Results for {{ ticker }}</h1>
+        <p><strong>Time Period:</strong> {{ start_date }} to {{ end_date }}</p>
+        <p><strong>Final Portfolio Balance:</strong> ${{ final_balance }}</p>
+
+        <a href="/static/visualizations.html">View Visualizations</a>
+        <a href="/">Back to Home</a>
+    </div>
 </body>
 </html>
