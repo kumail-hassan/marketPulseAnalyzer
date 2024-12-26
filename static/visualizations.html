@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Market Pulse Visualizations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        img {
+            max-width: 80%;
+            height: auto;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Market Pulse Analyzer Visualizations</h1>
+    <p>Below are the visualizations generated from your analysis:</p>
+
+    <!-- Portfolio Value Over Time -->
+    <h2>Portfolio Value Over Time</h2>
+    <img src="{{ url_for('static', filename='visuals/portfolio_value.png') }}" alt="Portfolio Value Over Time">
+
+    <!-- Buy/Sell Signals on Stock Prices -->
+    <h2>Buy/Sell Signals on Stock Prices</h2>
+    <img src="{{ url_for('static', filename='visuals/buy_sell_signals.png') }}" alt="Buy/Sell Signals on Stock Prices">
+
+    <!-- MACD and Signal Line -->
+    <h2>MACD and Signal Line</h2>
+    <img src="{{ url_for('static', filename='visuals/macd_signal_line.png') }}" alt="MACD and Signal Line">
+
+    <!-- RSI -->
+    <h2>Relative Strength Index (RSI)</h2>
+    <img src="{{ url_for('static', filename='visuals/rsi.png') }}" alt="Relative Strength Index (RSI)">
+
+    <a href="/" style="display: block; margin-top: 20px;">Back to Home</a>
+</body>
+</html>
