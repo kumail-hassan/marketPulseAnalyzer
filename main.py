@@ -3,11 +3,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-# Ensure directories exist
+# directories exist
 os.makedirs("data", exist_ok=True)
 os.makedirs("visuals", exist_ok=True)
 
-# Define indicator calculation functions
+# indicator calculation functions
 def calculate_sma(data, period):
     return data["Close"].rolling(window=period).mean()
 
@@ -47,7 +47,7 @@ def backtest_strategy(data, initial_balance=10000):
     data["Portfolio Value"] = 0
 
     for i in range(len(data)):
-        # Extract scalar values explicitly
+        # scalar values explicitly
         signal = int(data["Signal"].iloc[i])
         price = float(data["Close"].iloc[i])
 
@@ -58,7 +58,7 @@ def backtest_strategy(data, initial_balance=10000):
             balance = position * price
             position = 0
 
-        # Update portfolio value
+        # update portfolio value
         data.loc[data.index[i], "Portfolio Value"] = balance + (position * price)
 
     data["Cumulative Returns"] = data["Portfolio Value"] / initial_balance - 1

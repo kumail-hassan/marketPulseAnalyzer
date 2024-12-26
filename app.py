@@ -6,22 +6,22 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")  # Render input form
+    return render_template("index.html")  # input form
 
 @app.route("/analyze", methods=["POST"])
 def analyze():
-    # Get user inputs
+    # user inputs
     ticker = request.form.get("ticker").upper()
     start_date = request.form.get("start_date")
     end_date = request.form.get("end_date")
 
     try:
-        # Fetch data
+        # grab data
         data = yf.download(ticker, start=start_date, end=end_date)
         if data.empty:
             return render_template("error.html", message=f"No data found for {ticker} between {start_date} and {end_date}. Please try again.")
 
-        # Process data
+        # process data
         data.reset_index(inplace=True)
         data["SMA_20"] = calculate_sma(data, 20)
         data["EMA_20"] = calculate_ema(data, 20)
